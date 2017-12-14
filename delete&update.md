@@ -6,5 +6,5 @@ DELETE FROM `user` WHERE id = 15;
 
 Update 
 ```mysql
-UPDATE `user` SET fullname = 'An Nguyen Q.' WHERE id = 1;
+UPDATE `user` SET full_name = 'An Nguyen Q.' WHERE id = 1;
 ```
