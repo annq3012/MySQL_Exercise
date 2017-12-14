@@ -18,9 +18,9 @@ USE `mysql_exercise` ;
 -- Table `mysql_exercise`.`user`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `user` (
-  `id` INT NOT NULL,
-  `fullname` VARCHAR(100) NOT NULL,
-  `email` VARCHAR(100) NOT NULL UNIQUE,
+  `id` INT(11) NOT NULL,
+  `fullname` VARCHAR(255) NOT NULL,
+  `email` VARCHAR(255) NOT NULL UNIQUE,
   `rank` TINYINT(4) NOT NULL,
   `is_active` TINYINT(1) NULL,
   `created_at` TIMESTAMP NULL,
@@ -32,8 +32,8 @@ ENGINE = InnoDB;
 -- Table `mysql_exercise`.`category`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `category` (
-  `id` INT NOT NULL,
-  `title` VARCHAR(100) NOT NULL,
+  `id` INT(11) NOT NULL,
+  `title` VARCHAR(255) NOT NULL,
   `created_at` TIMESTAMP NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB;
@@ -43,11 +43,11 @@ ENGINE = InnoDB;
 -- Table `mysql_exercise`.`blog`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `blog` (
-  `id` INT NOT NULL,
-  `category_id` INT NOT NULL,
-  `user_id` INT NOT NULL,
-  `title` VARCHAR(100) NOT NULL,
-  `view` INT NOT NULL,
+  `id` INT(11) NOT NULL,
+  `category_id` INT(11) NOT NULL,
+  `user_id` INT(11) NOT NULL,
+  `title` VARCHAR(255) NOT NULL,
+  `view` INT(11) NOT NULL,
   `is_active` TINYINT(1) NULL,
   `content` TEXT NULL,
   `created_at` TIMESTAMP NULL,
@@ -74,9 +74,9 @@ COLLATE = utf8_unicode_ci;
 -- Table `mysql_exercise`.`follow`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `follow` (
-  `id` INT NOT NULL,
-  `from_user_id` INT NOT NULL,
-  `to_user_id` INT NOT NULL,
+  `id` INT(11) NOT NULL,
+  `from_user_id` INT(11) NOT NULL,
+  `to_user_id` INT(11) NOT NULL,
   `created_at` TIMESTAMP NULL,
   PRIMARY KEY (`id`),
   INDEX `fk_follow_user1_idx` (`from_user_id` ASC),
@@ -98,10 +98,10 @@ ENGINE = InnoDB;
 -- Table `mysql_exercise`.`comment`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `comment` (
-  `id` INT NOT NULL,
+  `id` INT(11) NOT NULL,
   `target_table` VARCHAR(20) NOT NULL,
-  `target_id` INT NOT NULL,
-  `user_id` INT NOT NULL,
+  `target_id` INT(11) NOT NULL,
+  `user_id` INT(11) NOT NULL,
   `comment` TEXT NOT NULL,
   `created_at` TIMESTAMP NULL,
   `updated_at` TIMESTAMP NULL,
@@ -119,10 +119,10 @@ ENGINE = InnoDB;
 -- Table `mysql_exercise`.`news`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `news` (
-  `id` INT NOT NULL,
-  `category_id` INT NOT NULL,
-  `title` VARCHAR(100) NOT NULL,
-  `view` INT NOT NULL,
+  `id` INT(11) NOT NULL,
+  `category_id` INT(11) NOT NULL,
+  `title` VARCHAR(255) NOT NULL,
+  `view` INT(11) NOT NULL,
   `is_active` TINYINT(1) NULL,
   `content` TEXT NULL,
   `created_at` TIMESTAMP NULL,
