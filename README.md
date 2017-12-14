@@ -1,2 +1,1 @@
-# MySQL_Exercis
-e
+# MySQL_Exercise
