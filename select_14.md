@@ -3,5 +3,5 @@
 SELECT DISTINCT `user`.* FROM `user` WHERE id IN
 	(SELECT `comment`.user_id FROM `comment` 
 	JOIN (SELECT blog.* FROM blog ORDER BY created_at DESC LIMIT 5) latest_blog 
-    ON `comment`.user_id = latest_blog.user_id ORDER BY updated_at DESC) LIMIT 3;
+    ON `comment`.user_id = latest_blog.user_id ORDER BY `comment`.updated_at DESC) LIMIT 3;
 ```
